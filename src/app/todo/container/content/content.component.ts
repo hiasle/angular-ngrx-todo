@@ -4,6 +4,7 @@ import { getAllDoneItems, getAllUndoneItems, TodoState } from '@app/todo/store';
 import * as fromTodoStore from '@app/todo/store';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/internal/operators/tap';
 
 @Component({
   selector: 'app-content',
@@ -17,8 +18,13 @@ export class ContentComponent implements OnInit {
   constructor(private store: Store<TodoState>) {}
 
   ngOnInit() {
-    this.items$ = this.store.pipe(select(getAllUndoneItems));
-    this.doneItems$ = this.store.pipe(select(getAllDoneItems));
+    this.items$ = this.store.pipe(
+      select(getAllUndoneItems),
+      tap((data) => console.log(data))
+      );
+    this.doneItems$ = this.store.pipe(
+      select(getAllDoneItems),
+      tap(data => console.log("done items: " + data)));
 
     this.store.dispatch(fromTodoStore.loadAllTodos());
   }

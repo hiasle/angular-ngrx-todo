@@ -7,4 +7,8 @@ export const appRoutes: Routes = [
     path: 'todo',
     loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule),
   },
+  {
+    path: 'shopping',
+    loadChildren: () => import('./shopping/shopping.module').then(m => m.ShoppingModule),
+  }
 ];

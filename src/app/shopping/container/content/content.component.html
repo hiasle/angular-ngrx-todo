@@ -1,0 +1,12 @@
+<div>
+    <app-shopping-cart-form ></app-shopping-cart-form>
+    <!-- <app-todo-form (todoAdded)="addTodo($event)"></app-todo-form> -->
+    <hr />
+    <app-shopping-cart-list [shoppingCarts]="shoppingCarts$ | async"></app-shopping-cart-list>
+    <!-- <app-todo-list
+      [items]="items$ | async"
+      [doneItems]="doneItems$ | async"
+      (markAsDone)="markAsDone($event)"
+      (delete)="deleteItem($event)"
+    ></app-todo-list> -->
+  </div>
