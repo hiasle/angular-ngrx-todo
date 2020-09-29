@@ -1,8 +1,16 @@
 <div>
-    <app-shopping-cart-form ></app-shopping-cart-form>
+
     <!-- <app-todo-form (todoAdded)="addTodo($event)"></app-todo-form> -->
+
+    <app-shopping-cart-list 
+      [shoppingCarts]="shoppingCarts$ | async"
+      (amountDecrement)="amountDecrement($event)"
+      (amountIncrement)="amountIncrement($event)">
+    </app-shopping-cart-list>
+
     <hr />
-    <app-shopping-cart-list [shoppingCarts]="shoppingCarts$ | async"></app-shopping-cart-list>
+
+    <app-shopping-cart-form (productAdded)="addProduct($event)"></app-shopping-cart-form>
     <!-- <app-todo-list
       [items]="items$ | async"
       [doneItems]="doneItems$ | async"

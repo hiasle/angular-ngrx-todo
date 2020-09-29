@@ -5,6 +5,7 @@ import { ShoppingcartDetailComponent } from './container/shoppingcart-detail/sho
 import { RouterModule, Routes } from '@angular/router';
 import { ShoppingCartFormComponent } from './presentational/shopping-cart-form/shopping-cart-form.component';
 import { ShoppingCartListComponent } from './presentational/shopping-cart-list/shopping-cart-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: ContentComponent },
@@ -13,9 +14,14 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
   exports: [],
-  declarations: [ContentComponent, ShoppingcartDetailComponent, ShoppingCartFormComponent, ShoppingCartListComponent],
+  declarations: [
+    ContentComponent,
+    ShoppingcartDetailComponent,
+    ShoppingCartFormComponent,
+    ShoppingCartListComponent],
 })
 export class ShoppingModule { }

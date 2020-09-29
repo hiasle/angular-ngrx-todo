@@ -1,0 +1,17 @@
+.products-shopping-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 1rem;
+}
+
+.products-shopping-list-item {
+  border-bottom: 1px solid black;
+}
+
+.amount-box {
+  width: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

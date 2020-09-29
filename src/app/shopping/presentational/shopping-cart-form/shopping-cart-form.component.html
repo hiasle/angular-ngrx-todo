@@ -1,1 +1,10 @@
-<p>shopping-cart-form works!</p>
+<form (ngSubmit)="addProduct()" [formGroup]="form" >
+    <input
+      type="text"
+      class="form-control add-todo mb-2"
+      placeholder="Produktname"
+      formControlName="productValue"
+    />
+    <button [disabled]="form.invalid" class="btn btn-success">Produkt hinzufügen</button>
+  </form>
+  

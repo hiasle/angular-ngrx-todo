@@ -1,17 +1,27 @@
 <div class="row">
     <div class="col-md-6">
-        <h1>Einkaufslisten</h1>
-        <div class="todolist not-done">
+        <h3>Einkaufslisten <span class="badge badge-primary">{{ shoppingCarts.length }}</span></h3>
+        <div>
             <ul id="sortable" class="list-unstyled">
                 <li class="ui-state-default" *ngFor="let item of shoppingCarts">
                     <div>
-                        {{ item.name }}
+                        <h4>{{ item.name }} <span class="badge badge-secondary">{{ item.products.length }} Produkte</span></h4>
                     </div>
-                    <div>
-                        {{ item.done }}
+                    <div class="products-shopping-list">
+                      <h6>Name:</h6>
+                      <h6>Menge:</h6>
                     </div>
-                    <div *ngFor="let product of item.products">
-                        {{ product | json }}
+                    <div *ngFor="let product of item.products" class="products-shopping-list products-shopping-list-item">
+                      <div>
+                        {{ product.name }}
+                      </div>
+                      <div class="amount-box">
+                        <p>{{ product.amount }}</p>
+                        <p>
+                          <i class="fa fa-minus-square" (click)="decrement(product)" aria-hidden="true"></i>
+                          <i class="fa fa-plus-square" (click)="increment(product)" aria-hidden="true"></i>
+                        </p>
+                      </div>
                     </div>
                     <div class="checkbox">
                         <!-- <label>
